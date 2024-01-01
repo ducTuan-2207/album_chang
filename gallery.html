@@ -68,6 +68,18 @@
             var player = document.getElementById('player');
             player.play();
         });
+
+        var galleryItems = document.querySelectorAll('.gallery-item');
+        var currentIndex = 0;
+
+        function autoChangeImage() {
+            galleryItems[currentIndex].classList.remove('full');
+            currentIndex = (currentIndex + 1) % galleryItems.length;
+            galleryItems[currentIndex].classList.add('full');
+            setTimeout(autoChangeImage, 5000); // Đặt thời gian 5 giây cho mỗi ảnh
+        }
+
+        setTimeout(autoChangeImage, 5000);
     </script>
 </body>
 </html>
