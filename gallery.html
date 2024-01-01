@@ -11,59 +11,57 @@
 </head>
 <body>
     <div class="buttons">
-        <!-- <a href="index.html" class="btn btn-bir">Happy Birthday An Tranggg</a>
-        <a href="timeline.html" class="btn btn-timeline">Lời tui muốn gởi tới Chang a</a> -->
-        <a href="gallery.html" class="btn btn-gallery">Ảnh của Chang nhe </a>
+        <a href="gallery.html" class="btn btn-gallery">Ảnh của Chang nhe</a>
     </div>
 
-    <!-- 6. Thay tất cả bằng hình ảnh của bạn -->
     <div class="gallery" id="gallery">
         <div class="gallery-item">
-            <div class="content"><img src="./img/trang1.jpeg" alt="" /></div>
+            <div class="content"><img src="./img/trang1.jpeg" alt="" loading="lazy" /></div>
         </div>
         <div class="gallery-item">
-            <div class="content"><img src="./img/trang2.jpeg" alt="" /></div>
+            <div class="content"><img src="./img/trang2.jpeg" alt="" loading="lazy" /></div>
         </div>
         <div class="gallery-item">
-            <div class="content"><img src="./img/trang3.jpeg" alt="" /></div>
+            <div class="content"><img src="./img/trang3.jpeg" alt="" loading="lazy" /></div>
         </div>
         <div class="gallery-item">
-            <div class="content"><img src="./img/trang4.jpeg" alt="" /></div>
+            <div class="content"><img src="./img/trang4.jpeg" alt="" loading="lazy" /></div>
         </div>
         <div class="gallery-item">
-            <div class="content"><img src="./img/trang5.jpeg" alt="" /></div>
+            <div class="content"><img src="./img/trang5.jpeg" alt="" loading="lazy" /></div>
         </div>
         <div class="gallery-item">
-            <div class="content"><img src="./img/trang6.jpeg" alt="" /></div>
+            <div class="content"><img src="./img/trang6.jpeg" alt="" loading="lazy" /></div>
         </div>
         <div class="gallery-item">
-            <div class="content"><img src="./img/trang7.jpeg" alt="" /></div>
+            <div class="content"><img src="./img/trang7.jpeg" alt="" loading="lazy" /></div>
         </div>
         <div class="gallery-item">
-            <div class="content"><img src="./img/trang8.jpeg" alt="" /></div>
+            <div class="content"><img src="./img/trang8.jpeg" alt="" loading="lazy" /></div>
         </div>
         <div class="gallery-item">
-            <div class="content"><img src="./img/trang9.jpeg" alt="" /></div>
+            <div class="content"><img src="./img/trang9.jpeg" alt="" loading="lazy" /></div>
         </div>
         <div class="gallery-item">
-            <div class="content"><img src="./img/trang10.jpeg" alt="" /></div>
+            <div class="content"><img src="./img/trang10.jpeg" alt="" loading="lazy" /></div>
         </div>
         <div class="gallery-item">
-            <div class="content"><img src="./img/trang11.jpeg" alt="" /></div>
+            <div class="content"><img src="./img/trang11.jpeg" alt="" loading="lazy" /></div>
         </div>
         <div class="gallery-item">
-            <div class="content"><img src="./img/trang12.jpeg" alt="" /></div>
+            <div class="content"><img src="./img/trang12.jpeg" alt="" loading="lazy" /></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="./img/trang13.jpeg" alt="" loading="lazy" /></div>
         </div>
     </div>
 
-    <!-- Phần nhạc -->
     <audio id="player" autoplay loop playsinline>
         <source src="./music/y2mate.com - Happy Birthday Korean Versi  Saengilchughahamnida.mp3" type="audio/mp3" />
     </audio>
 
     <script src="./js/gallery.js"></script>
     <script>
-        // Thêm sự kiện "touchstart" để kích hoạt âm thanh trên điện thoại
         document.addEventListener('touchstart', function() {
             var player = document.getElementById('player');
             player.play();
@@ -72,11 +70,15 @@
         var galleryItems = document.querySelectorAll('.gallery-item');
         var currentIndex = 0;
 
+        function showImage(index) {
+            galleryItems.forEach(item => item.classList.remove('full'));
+            galleryItems[index].classList.add('full');
+        }
+
         function autoChangeImage() {
-            galleryItems[currentIndex].classList.remove('full');
             currentIndex = (currentIndex + 1) % galleryItems.length;
-            galleryItems[currentIndex].classList.add('full');
-            setTimeout(autoChangeImage, 5000); // Đặt thời gian 5 giây cho mỗi ảnh
+            showImage(currentIndex);
+            setTimeout(autoChangeImage, 3500); // Đặt thời gian 3.5 giây cho mỗi ảnh
         }
 
         setTimeout(autoChangeImage, 5000);

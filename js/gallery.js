@@ -13,7 +13,7 @@ var resizeAll = function () {
 gallery.querySelectorAll('img').forEach(function (item) {
     item.classList.add('byebye');
     if (item.complete) {
-        console.log(item.src);
+        console.log(item.src); 
     } else {
         item.addEventListener('load', function () {
             var altura = getVal(gallery, 'grid-auto-rows');
